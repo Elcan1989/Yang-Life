@@ -2,100 +2,167 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>影片介紹｜我的頻道</title>
+    <title>作品介紹｜黃翊愷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
         body {
             margin: 0;
             font-family: "Noto Sans TC", Arial, sans-serif;
-            background: #111;
-            color: #fff;
+            background: #f4f6f8;
+            color: #333;
         }
 
         header {
+            background: #111;
+            color: #fff;
             padding: 60px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #1e1e1e, #000);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin: 0;
+            font-size: 2.5em;
         }
 
         header p {
+            margin-top: 10px;
+            font-size: 1.1em;
             color: #ccc;
-            font-size: 1.1rem;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .video-box {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-bottom: 40px;
+        .works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .video-box iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .card {
+            background: #fff;
             border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
         }
 
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+        .card:hover {
+            transform: translateY(-6px);
         }
 
-        .description {
-            color: #ccc;
-            line-height: 1.8;
-            margin-bottom: 40px;
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+        }
+
+        .card-content p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e9eef3;
+            color: #333;
+            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 6px;
+            margin-bottom: 6px;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9em;
         }
     </style>
 </head>
-
 <body>
 
 <header>
-    <h1>機智楊老生活</h1>
-    <p>影片介紹與精選內容</p>
+    <h1>我的作品介紹</h1>
+    <p>Web / 遊戲 / 創作專案</p>
 </header>
 
-<div class="container">
+<section>
+    <div class="works">
 
-    <div class="video-box">
-        <!-- 把下面的 VIDEO_ID 換成你的 YouTube 影片 ID -->
-        <iframe 
-            src="https://www.youtube.com/embed/VIDEO_ID" 
-            frameborder="0" 
-            allowfullscreen>
-        </iframe>
+        <!-- 作品 1 -->
+        <div class="card">
+            <img src="images/demo.png" alt="作品圖片">
+            <div class="card-content">
+                <h3>寶可夢風格 RPG 遊戲</h3>
+                <p>
+                    使用 Python 製作的文字與圖形化 RPG，
+                    包含戰鬥、捕捉、技能屬性相剋與任務系統。
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">RPG</span>
+                    <span class="tag">Game</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 作品 2 -->
+        <div class="card">
+            <img src="images/demo.png" alt="作品圖片">
+            <div class="card-content">
+                <h3>GitHub Pages 作品網站</h3>
+                <p>
+                    使用 HTML / CSS 製作的靜態網站，
+                    部署於 GitHub Pages，支援 RWD。
+                </p>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">GitHub</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 作品 3 -->
+        <div class="card">
+            <img src="images/demo.png" alt="作品圖片">
+            <div class="card-content">
+                <h3>文字 RPG 遊戲</h3>
+                <p>
+                    具有裝備、商店、任務、BOSS 戰與存檔系統的
+                    Python 文字冒險遊戲。
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Text RPG</span>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div class="description">
-        這個頻道主要分享生活觀察、趣味影片與創作內容。  
-        希望透過影像記錄有趣的日常，帶來輕鬆與思考。
-    </div>
-
-</div>
+</section>
 
 <footer>
-    © 2026 我的影片頻道
+    © 2026 黃翊愷｜作品集網站
 </footer>
 
 </body>
