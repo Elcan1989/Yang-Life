@@ -170,5 +170,35 @@
     <p>© 2026 機智楊老生活製作小組</p>
     <p>網頁內容，完全虛構。如有雷同，那就雷同。</p>
   </footer>
+  <script>
+  const photoCards = document.querySelectorAll('.photo-card');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  const lightboxCaption = document.querySelector('.lightbox-caption');
+  const closeBtn = document.querySelector('.lightbox .close');
+
+  photoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const imgSrc = card.querySelector('img').src;
+      const title = card.dataset.title;
+      const desc = card.dataset.desc;
+      lightboxImg.src = imgSrc;
+      lightboxCaption.innerHTML = `<strong>${title}</strong><br>${desc}`;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // 點背景也可以關閉
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+  </script>
+
 </body>
 </html>
