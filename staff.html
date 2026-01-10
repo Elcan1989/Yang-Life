@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王者傳奇：永恆之境 - 製作人員</title>
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <style>
+    body {
+      font-family: "微軟正黑體", sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background: #0d0d1a;
+      padding: 20px 0;
+      border-bottom: 3px solid #ef233c;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      color: #ef233c;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ef233c;
+    }
+
+    .team-section {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .staff-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .staff-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 15px rgba(239, 35, 60, 0.4);
+    }
+
+    .staff-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px rgba(239, 35, 60, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      background: #0d0d1a;
+      padding: 15px;
+      border-top: 3px solid #ef233c;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    /* Modal 彈窗樣式 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .modal-content {
+      background-color: #1e1e2f;
+      margin: 10% auto;
+      padding: 30px;
+      border: 2px solid #ef233c;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(239, 35, 60, 0.4);
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ef233c;
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header>
+    <h1>王者傳奇：永恆之境</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="news.html">最新消息</a></li>
+        <li><a href="dlc.html" class="active">DLC 更新</a></li>
+        <li><a href="characters.html">角色介紹</a></li>
+        <li><a href="staff.html">製作人員</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="team-section">
+    <h2>🎮 製作人員名單</h2>
+    <p>感謝所有成員的熱情與創意，讓《王者傳奇：永恆之境》誕生。</p>
+
+    <div class="team-grid">
+      <div class="staff-card" onclick="openModal('allen')">
+        <h3>Elcan1989</h3>
+        <p>主程式設計 / 遊戲系統</p>
+      </div>
+
+      <div class="staff-card" onclick="openModal('lia')">
+        <h3>dxjh1989</h3>
+        <p>劇情編寫 / 世界觀設計</p>
+      </div>
+
+      <div class="staff-card" onclick="openModal('kyle')">
+        <h3>Elcan1989</h3>
+        <p>美術設計 / 場景繪製</p>
+      </div>
+
+      <div class="staff-card" onclick="openModal('erin')">
+        <h3>Elcan1989</h3>
+        <p>音樂製作 / 特效音效</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal 區域 -->
+  <div id="allen" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('allen')">&times;</span>
+      <h2>Elcan1989</h2>
+      <p>主要負責遊戲核心戰鬥系統與角色成長機制設計，擅長使用 Python 與 Pygame。</p>
+    </div>
+  </div>
+
+  <div id="lia" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('lia')">&times;</span>
+      <h2>dxjh1989</h2>
+      <p>負責劇情、角色對話與世界觀設定，靈感來自中古奇幻與魔導學派傳說。</p>
+    </div>
+  </div>
+
+  <div id="kyle" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('kyle')">&times;</span>
+      <h2>Elcan1989</h2>
+      <p>擔任主要視覺美術，負責角色立繪與背景場景設計，風格融合像素與光影寫實。</p>
+    </div>
+  </div>
+
+  <div id="erin" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('erin')">&times;</span>
+      <h2>Elcan1989</h2>
+      <p>音樂與音效總監，負責戰鬥主題曲與環境音設計，讓冒險更具臨場感。</p>
+    </div>
+  </div>
+
+  <!-- 頁尾 -->
+  <footer>
+    <p>© 2025 未來遊戲開發團隊 | 現在版本 v1.0.9</p>
+    <h4>📜 歷代版本</h4>
+    <ul style="list-steyle: none; padding: 0; margin: 0;">
+      <li>🔹 v1.0.9 - 更新製作人員頁面</li>
+      <li>🔹 v1.0.8 - 新增製作人員</li>
+      <li>🔹 v1.0.7 - 新增陣營分類、屬性欄位與搜尋功能</li>
+      <li>🔹 v1.0.6.1 - 增加角色</li>
+      <li>🔹 v1.0.6 - 角色介紹新增分類系統</li>
+      <li>🔹 v1.0.5 - 增加遊戲正式名稱</li>
+      <li>🔹 v1.0.4 - 角色介紹獨立頁面、加入返回首頁按鈕</li>
+      <li>🔹 v1.0.3 - 角色卡片可展開詳細介紹</li>
+      <li>🔹 v1.0.2 - 新增角色「刺客艾琳」</li>
+      <li>🔹 v1.0.1 - 增加角色簡介、Hover 發光特效</li>
+      <li>🔹 v1.0 - 創造網站初始版本</li>
+    </ul>
+  </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
