@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片展示 - 機智楊老生活</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .photo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .photo-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 250px;
+    }
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+    .photo-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #222;
+    }
+    .photo-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>機智楊老生活照片展示</h1>
+
+  <div class="photo-container">
+    <div class="photo-card">
+      <img src="images/photo1.jpg" alt="照片1">
+      <h3>楊老的日常</h3>
+      <p>某個風和日麗的下午，楊老正在思考人生。</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/photo2.jpg" alt="照片2">
+      <h3>神秘倉庫</h3>
+      <p>倉庫裡充滿了未知與故事的氣息。</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/photo3.jpg" alt="照片3">
+      <h3>機智時刻</h3>
+      <p>當靈感突然出現的那一瞬間。</p>
+    </div>
+  </div>
+
+</body>
+</html>
