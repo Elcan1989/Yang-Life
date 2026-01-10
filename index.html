@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>影片介紹｜我的頻道</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background: #111;
+            color: #fff;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1e1e1e, #000);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 40px;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>機智楊老生活</h1>
+    <p>影片介紹與精選內容</p>
+</header>
+
+<div class="container">
+
+    <div class="video-box">
+        <!-- 把下面的 VIDEO_ID 換成你的 YouTube 影片 ID -->
+        <iframe 
+            src="https://www.youtube.com/embed/VIDEO_ID" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="description">
+        這個頻道主要分享生活觀察、趣味影片與創作內容。  
+        希望透過影像記錄有趣的日常，帶來輕鬆與思考。
+    </div>
+
+</div>
+
+<footer>
+    © 2026 我的影片頻道
+</footer>
+
+</body>
+</html>
