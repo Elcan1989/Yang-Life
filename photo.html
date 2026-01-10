@@ -44,6 +44,46 @@
       from { opacity: 0; transform: translateY(-5px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.photo-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(239, 35, 60, 0.5);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.photo-card h3 {
+  margin: 12px;
+  font-size: 18px;
+  color: #222;
+}
+
+.photo-card p {
+  margin: 0 12px 14px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
   </style>
 </head>
 <body>
