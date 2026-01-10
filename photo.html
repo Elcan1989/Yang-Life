@@ -17,12 +17,14 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
     }
+
     .character-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 4px 12px rgba(239, 35, 60, 0.6),
                   0 0 15px rgba(239, 35, 60, 0.8);
       border: 2px solid #ef233c;
     }
+
     .character-details {
       display: none;
       margin-top: 10px;
@@ -32,92 +34,50 @@
       font-size: 14px;
       text-align: left;
     }
+
     .character-card.active .character-details {
       display: block;
       animation: fadeIn 0.3s ease-in-out;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-5px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    .back-btn {
-      display: inline-block;
-      margin: 15px 20px;
-      padding: 10px 20px;
-      background: #1f2937;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .back-btn:hover { background: #ef233c; }
-    .category-title {
-      width: 100%;
-      text-align: left;
-      margin: 20px 0 10px 5%;
-      font-size: 20px;
-      color: #1f2937;
-      border-left: 5px solid #ef233c;
-      padding-left: 10px;
-    }
-    .character-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
     }
   </style>
 </head>
 <body>
   <!-- 導覽列 -->
   <nav>
-    <h2 class="logo">機智楊老生活</h2>
-    <ul>
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="news.html">最新消息</a></li>
-      <li><a href="photo.html">照片</a></li>
-      <li><a href="characters.html" class="active">角色介紹</a></li>
-      <li><a href="staff.html">製作人員</a></li>
-    </ul>
-  </nav>
+  <h2 class="logo">機智楊老生活</h2>
+  <ul>
+    <li><a href="index.html" class="active">首頁</a></li>
+    <li><a href="news.html">機智日報</a></li>
+    <li><a href="photo.html">照片</a></li>
+    <li><a href="characters.html">角色介紹</a></li>
+    <li><a href="staff.html">製作人員</a></li>
+  </ul>
+</nav>
 
-  <!-- 角色介紹區 -->
+
+  <!-- 封面區 -->
+  <header class="hero">
+    <h1>機智楊老生活</h1>
+  </header>
+
+  <!-- 最新公告簡短預覽 -->
   <section class="content">
-    <h2>照片[每週五更新(有空的話)]</h2>
-
-    <h3 class="category-title">照片</h3>
-    <div class="character-container">
-      <div class="character-card" data-name="勇者艾倫">
-        <span class="tag kingdom">王國陣營</span>
-        <h3>勇者艾倫</h3>
-        <p>手持傳說之劍的冒險家。</p>
-        <div class="character-details">
-          <p>⚔️ <strong>背景故事：</strong> 年僅18歲便獲得傳說之劍的認可，曾擊退魔物大軍保護村莊。</p>
-          <p>🛡️ <strong>屬性：</strong> HP 120 / 攻擊 35 / 防禦 20 / 速度 15</p>
-          <p>🔹 <strong>主要技能：</strong> 劍術連擊、防禦格擋、破空斬。</p>
-        </div>
-      </div>
-
-
-
+    <h2>📰 機智日報</h2>
+    <div class="news-preview">
+      <p>📢 <strong>新疆的房子不輸台北</strong><p>
+      <a href="news.html" class="btn">查看更多消息</a>
+    </div>
+  </section>
 
   <!-- 頁尾 -->
   <footer>
-    <p>© 2025 未來遊戲開發團隊 | 現在版本 v1.0.9</p>
-    <h4>📜 歷代版本</h4>
-    <ul style="list-steyle: none; padding: 0; margin: 0;">
-      <li>🔹 v1.0.9 - 更新製作人員頁面</li>
-      <li>🔹 v1.0.8 - 新增製作人員</li>
-      <li>🔹 v1.0.7 - 新增陣營分類、屬性欄位與搜尋功能</li>
-      <li>🔹 v1.0.6.1 - 增加角色</li>
-      <li>🔹 v1.0.6 - 角色介紹新增分類系統</li>
-      <li>🔹 v1.0.5 - 增加遊戲正式名稱</li>
-      <li>🔹 v1.0.4 - 角色介紹獨立頁面、加入返回首頁按鈕</li>
-      <li>🔹 v1.0.3 - 角色卡片可展開詳細介紹</li>
-      <li>🔹 v1.0.2 - 新增角色「刺客艾琳」</li>
-      <li>🔹 v1.0.1 - 增加角色簡介、Hover 發光特效</li>
-      <li>🔹 v1.0 - 創造網站初始版本</li>
-    </ul>
+    <p>© 2026 機智楊老生活製作小組</p>
+    <p>網頁內容，完全虛構。如有雷同，那就雷同。</p>
   </footer>
 </body>
 </html>
