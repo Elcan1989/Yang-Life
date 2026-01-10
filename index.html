@@ -1,115 +1,128 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>機智楊老生活</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: "Noto Sans TC", Arial, sans-serif;
-            background: #f4f6f8;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>機智楊老生活</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .character-card {
+      background: #fff;
+      padding: 15px;
+      width: 220px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
 
-        header {
-            background: #111;
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    .character-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(239, 35, 60, 0.6),
+                  0 0 15px rgba(239, 35, 60, 0.8);
+      border: 2px solid #ef233c;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+    .character-details {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #f8f8f8;
+      border-radius: 6px;
+      font-size: 14px;
+      text-align: left;
+    }
 
-        header p {
-            margin-top: 10px;
-            font-size: 1.1em;
-            color: #ccc;
-        }
+    .character-card.active .character-details {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
 
-        section {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .works {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #ddd;
-        }
-
-        .card-content {
-            padding: 18px;
-        }
-
-        .card-content h3 {
-            margin: 0 0 10px;
-        }
-
-        .card-content p {
-            font-size: 0.95em;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .tags {
-            margin-top: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e9eef3;
-            color: #333;
-            font-size: 0.8em;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-right: 6px;
-            margin-bottom: 6px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #777;
-            font-size: 0.9em;
-        }
-    </style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+  <!-- 導覽列 -->
+  <nav>
+  <h2 class="logo">機智楊老生活</h2>
+  <ul>
+    <li><a href="index.html" class="active">首頁</a></li>
+    <li><a href="news.html">最新消息</a></li>
+    <li><a href="dlc.html">DLC 更新</a></li>
+    <li><a href="characters.html">角色介紹</a></li>
+    <li><a href="staff.html">製作人員</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+</nav>
 
-<header>
+
+  <!-- 封面區 -->
+  <header class="hero">
     <h1>機智楊老生活</h1>
-    <p>機智楊老生活製作小組</p>
-</header>
+  </header>
+
+  <!-- 最新公告簡短預覽 -->
+  <section class="content">
+    <h2>📰 最新公告</h2>
+    <div class="news-preview">
+      <p>📢 <strong>尚無更新</strong>
+      <a href="news.html" class="btn">查看更多消息</a>
+    </div>
+  </section>
 
 
+<!-- 聯絡我們 -->
+  <section id="contact" class="content">
+    <h2>📩 聯絡我們</h2>
 
-<footer>
-    © 2026 機智楊老生活製作小組
-</footer>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/1989github/" target="_blank">Instagram</a>
+      <a href="https://github.com/Elcan1989" target="_blank">Github</a>
+    </div>
 
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="你的名字" required>
+      <input type="email" id="email" placeholder="你的 Email" required>
+      <textarea id="message" placeholder="留言內容" required></textarea>
+      <button type="submit">送出</button>
+    </form>
+    <p id="status"></p>
+  </section>
+
+
+  <!-- 頁尾 -->
+  <footer>
+    <p>© 2025 未來遊戲開發團隊 | 現在版本 v1.0.9</p>
+    <h4>📜 歷代版本</h4>
+    <ul style="list-steyle: none; padding: 0; margin: 0;">
+      <li>🔹 v1.0.9 - 更新製作人員頁面</li>
+      <li>🔹 v1.0.8 - 新增製作人員</li>
+      <li>🔹 v1.0.7 - 新增陣營分類、屬性欄位與搜尋功能</li>
+      <li>🔹 v1.0.6.1 - 增加角色</li>
+      <li>🔹 v1.0.6 - 角色介紹新增分類系統</li>
+      <li>🔹 v1.0.5 - 增加遊戲正式名稱</li>
+      <li>🔹 v1.0.4 - 角色介紹獨立頁面、加入返回首頁按鈕</li>
+      <li>🔹 v1.0.3 - 角色卡片可展開詳細介紹</li>
+      <li>🔹 v1.0.2 - 新增角色「刺客艾琳」</li>
+      <li>🔹 v1.0.1 - 增加角色簡介、Hover 發光特效</li>
+      <li>🔹 v1.0 - 創造網站初始版本</li>
+    </ul>
+  </footer>
+
+
+  <script>
+    // 點擊展開/收合角色詳情
+    document.querySelectorAll(".character-card").forEach(card => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>
