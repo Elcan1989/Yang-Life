@@ -92,16 +92,54 @@
       <a href="photo.html" class="btn">查看照片</a>
     </div>
   </section>
-
-  <footer class="bg-white text-gray-800 text-center py-6 border-t border-gray-200">
-    <div id="contact" class="scroll-mt-24 mb-6">
-      <p class="mb-4 font-medium">聯絡和追蹤我們：</p>
-      <div class="flex justify-center space-x-6">
-        <a href="https://github.com/Elcan1989" class="text-blue-600 hover:text-blue-800 transition-colors">Github</a>
-        <a href="https://www.instagram.com/yangslife_offical/" class="text-pink-600 hover:text-pink-800 transition-colors">Instagram</a>
+  
+  <section class="content contact-section">
+      <h2>📩 聯絡資訊</h2>
+      <div class="contact-container">
+        <div class="contact-item">
+          <strong>官方信箱：</strong> 
+          <a href="mailto:service@yanglao.life">service@yanglao.life</a>
+        </div>
+        <div class="contact-item">
+          <strong>追蹤動態：</strong>
+          <div class="social-links">
+            <a href="#" class="btn">Instagram</a>
+            <a href="#" class="btn">Facebook</a>
+          </div>
+        </div>
+        <p class="contact-note">如果您有任何虛構的問題，歡迎聯絡我們！</p>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <style>
+      .contact-section {
+        background: #fdfdfd;
+        border-radius: 12px;
+        margin: 20px auto;
+        padding: 30px;
+        max-width: 800px;
+      }
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+      .contact-item {
+        font-size: 1.1rem;
+      }
+      .social-links {
+        display: inline-flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .contact-note {
+        font-size: 0.9rem;
+        color: #666;
+        font-style: italic;
+        margin-top: 15px;
+      }
+    </style>
   
   <!-- 頁尾 -->
   <footer>
