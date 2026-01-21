@@ -14,7 +14,33 @@
       padding: 0.5rem;
       transition: border 0.3s ease-in-out;
     }
-  </style>
+    
+  /* 容器：使用 Flexbox 讓內容置中 */
+  .content-wrapper {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中 (選用) */
+    padding: 2rem 0;        /* 上下留白 */
+    width: 100%;
+  }
+
+  /* 視窗大小調整 */
+  .news-iframe {
+    width: 90%;           /* 寬度改為百分比，在手機上才不會爆出去 */
+    max-width: 1200px;    /* 最大寬度限制 */
+    height: 800px;        /* 高度 */
+    border: 2px solid #374151;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 加點陰影增加質感 */
+  }
+
+  /* 如果想要在手機上縮短高度 */
+  @media (max-width: 768px) {
+    .news-iframe {
+      height: 500px;
+    }
+  }
+</style>
   
 </head>
 <body>
@@ -33,13 +59,14 @@
       </li>
     </ul>
   </nav>
-  <main class="max-w-screen-xl mx-auto px-4">
-    <iframe
-      src="https://elcan1989.github.io/XinjiangNews/"
-      class="w-[1000px] mt-10 h-[800px] rounded-xl border border-gray-700"
-      loading="lazy">
-    </iframe>
-  </main>
+<main class="content-wrapper">
+  <iframe
+    src="https://elcan1989.github.io/XinjiangNews/"
+    class="news-iframe"
+    loading="lazy">
+  </iframe>
+</main>
+
 
   <footer>
     <p>© 2026 機智楊老生活製作小組</p>
