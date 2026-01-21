@@ -6,22 +6,28 @@
   <title>新疆日報 - 機智楊老生活</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/stanp.png" type="image/png" />
+  
+  <style>
+    .spinner {
+       display: inline-block;
+       width: 1rem;
+       height: 1rem;
+       border: 2px solid transparent;
+       border-top-color: white;
+       border-radius: 50%;
+       animation: spin 1s linear infinite;
+       margin-right: 8px;
+       vertical-align: middle;
+    }
+
+    /* 補上動畫定義 */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
-<style>
-.spinner {
-   display: inline-block;
-   width: 1rem;
-   height: 1rem;
-   border: 2px solid transparent;
-   border-top-color: white;
-   border-radius: 50%;
-   animation: spin 1s linear infinite;
-   margin-right: 8px;
-   vertical-align: middle;
-}
-<style>
 <body>
-  <!-- 導覽列 -->
   <nav>
     <h2 class="logo">機智楊老生活</h2>
     <ul>
@@ -30,7 +36,11 @@
       <li><a href="photo.html">照片</a></li>
       <li><a href="awards.html">獲獎</a></li>
       <li><a href="video.html">影片消息</a></li>
-      <li><a href="https://091cc.github.io/three-gay-kingdom/index.html"><img src="https://091cc.github.io/three-gay-kingdom/三GAY志.png" alt="三GAY志" width="30"></a><li>
+      <li>
+        <a href="https://091cc.github.io/three-gay-kingdom/index.html">
+          <img src="https://091cc.github.io/three-gay-kingdom/三GAY志.png" alt="三GAY志" width="30">
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -42,20 +52,12 @@
     </iframe>
   </main>
 
-    
-  </main>
-
-  <!-- 頁尾 -->
   <footer>
     <p>© 2026 機智楊老生活製作小組</p>
     <p>網頁內容，完全虛構。如有雷同，那就雷同。</p>
   </footer>
-
-  
 </body>
 </html>
-
-
 
 
 
