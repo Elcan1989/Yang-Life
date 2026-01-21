@@ -8,7 +8,7 @@ body {
 /* 導覽列 */
 nav {
   background: #1f2937;
-  padding: 10px 20px;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
