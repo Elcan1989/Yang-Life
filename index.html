@@ -3,155 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>機智楊老生活</title>
+  <title>機智楊老生活｜維修中</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/stanp.png" type="image/png" />
-  <style>
-    .character-card {
-      background: #fff;
-      padding: 15px;
-      width: 220px;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .character-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(239, 35, 60, 0.6),
-                  0 0 15px rgba(239, 35, 60, 0.8);
-      border: 2px solid #ef233c;
-    }
-
-    .character-details {
-      display: none;
-      margin-top: 10px;
-      padding: 10px;
-      background: #f8f8f8;
-      border-radius: 6px;
-      font-size: 14px;
-      text-align: left;
-    }
-
-    .character-card.active .character-details {
-      display: block;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero {
-      padding: 40px 0;
-    }
-
-    .hero img {
-      max-width: 40%;
-      height: auto;
-    }
-  </style>
 </head>
-<body>
-  <!-- 導覽列 -->
-  <nav>
-  <h2 class="logo">機智楊老生活  </h2>
-  <ul>
-    <li><a href="index.html" class="active">首頁</a></li>
-    <li><a href="specialnews.html">公告</a></li>
-    <li><a href="news.html">新疆蘋果日報</a></li>
-    <li><a href="photo.html">照片</a></li>
-    <li><a href="awards.html">獲獎</a></li>
-    <li><a href="video.html">影片消息</a></li>
-    <li><a href="https://091cc.github.io/three-gay-kingdom/index.html"><img src="https://091cc.github.io/three-gay-kingdom/三GAY志.png" alt="三GAY志" width="30"></a><li>
-  </ul>
-</nav>
-
-
-  <!-- 封面區 -->
-  <header class="hero">
-    <h1>    
-      <img src="images/photo.png" alt="機智楊老生活 Logo">
-    </h1>
-  </header>
-  <!-- 最新公告簡短預覽 -->
-  <section class="content">
-    <h2>公告</h2>
-    <div class="news-preview">
-      <p><strong></strong>新疆蘋果日報公休時間、我們有yt了🎉🎉🎉</strong><p>
-      <a href="specialnews.html" class="btn">查看更多消息</a>
-    </div>
-  </section>
-  <!-- 最新公告簡短預覽 -->
-  <section class="content">
-    <h2>📰 新聞快報</h2>
-    <div class="news-preview">
-      <p><strong></strong>主席身體狀況堪憂？</strong><p>
-      <a href="news.html" class="btn">查看更多消息</a>
-    </div>
-  </section>
-  <!-- 圖片 -->
-  <section class="content">
-    <h2>圖片</h2>
-    <div class="news-preview">
-      <a href="photo.html" class="btn">查看照片</a>
-    </div>
-  </section>
-  
-  <section class="content contact-section">
-      <h2>📩 聯絡資訊</h2>
-      <div class="contact-container">
-        <div class="contact-item">
-          <strong>追蹤動態：</strong>
-          <div class="social-links">
-            <a href="https://www.instagram.com/yanglife_offical/" class="btn">Instagram</a>
-            <a href="https://github.com/Elcan1989" class="btn">Github</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvKs_drgxRtNIHDVU781i9VK21Rl5UFR6Pf0oN9cJj5Eau6Q/viewform?usp=dialog" class="btn">滿意度調查</a>
-          </div>
+<body class="maintenance-body">
+  <main class="maintenance-wrapper">
+    <section class="maintenance-card">
+      <img src="images/photo.png" alt="機智楊老生活" class="maintenance-logo" />
+      <p class="maintenance-kicker">Maintenance Mode</p>
+      <h1>網站維修中</h1>
+      <p class="maintenance-message">
+        我們正在進行例行維護與內容更新，暫時無法提供完整服務。
+        感謝您的耐心等待，預計將於近期恢復。
+      </p>
+      <div class="maintenance-meta">
+        <div>
+          <span class="maintenance-label">預計恢復</span>
+          <span>本週內</span>
         </div>
-        <p class="contact-note">如果您有任何問題，歡迎聯絡我們！</p>
+        <div>
+          <span class="maintenance-label">客服信箱</span>
+          <span>yanglife_offical@gmail.com</span>
+        </div>
+      </div>
+      <div class="maintenance-actions">
+        <a class="btn" href="https://www.instagram.com/yanglife_offical/">追蹤最新消息</a>
+        <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdvKs_drgxRtNIHDVU781i9VK21Rl5UFR6Pf0oN9cJj5Eau6Q/viewform?usp=dialog">回饋意見</a>
       </div>
     </section>
-
-    <style>
-      .contact-section {
-        background: #fdfdfd;
-        border-radius: 12px;
-        margin: 20px auto;
-        padding: 30px;
-        max-width: 800px;
-      }
-      .contact-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-      }
-      .contact-item {
-        font-size: 1.1rem;
-      }
-      .social-links {
-        display: inline-flex;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      .contact-note {
-        font-size: 0.9rem;
-        color: #666;
-        font-style: italic;
-        margin-top: 15px;
-      }
-    </style>
-  
-  <!-- 頁尾 -->
-  <footer style="background: #1f2937; color: white; text-align: center; padding: 20px;">
-    <p>有任何問題歡迎聯絡我們</p>
-    <a href="https://www.instagram.com/yanglife_offical/" style="color: #E1306C; text-decoration: none; font-weight: bold;">Instagram</a>    <a href="https://github.com/Elcan1989" style="color: #e6cb00; text-decoration: none; font-weight: bold;">Github</a>
-    <p>© 2026 機智楊老生活製作小組</p>
-    <p>網頁內容，完全虛構。如有雷同，那就雷同。</p>
-    <footer>
+    <p class="maintenance-footer">© 2026 機智楊老生活製作小組</p>
+  </main>
 </body>
 </html>
