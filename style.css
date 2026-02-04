@@ -324,6 +324,11 @@ footer {
   color: #ef233c;
 }
 
+.btn.btn-outline {
+  background: transparent;
+  color: #ef233c;
+}
+
 .btn.btn-outline:hover {
   background: #ef233c;
   color: #ffffff;
