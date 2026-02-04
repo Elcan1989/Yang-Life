@@ -46,8 +46,15 @@
       }
 
       if (input === maintenancePassword) {
+        const input = window.prompt('進入哪個頁面');
+        if (input === null) {
+          return;
+        }
+
+        if (input == 1) {
         window.location.href = 'index1.html';
         return;
+        }
       }
 
       window.alert('密碼錯誤，請再試一次。');
