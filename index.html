@@ -27,10 +27,36 @@
       <div class="maintenance-actions">
         <a class="btn btn-outline" href="https://www.instagram.com/yanglife_offical/">追蹤最新消息</a>
         <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSdvKs_drgxRtNIHDVU781i9VK21Rl5UFR6Pf0oN9cJj5Eau6Q/viewform?usp=dialog">回饋意見</a>
+        <button class="btn btn-outline btn-maintenance" type="button" id="maintenance-access">維修人員專用</button>
       </div>
+      <p class="maintenance-hint" id="maintenance-hint" role="status" aria-live="polite"></p>
     </section>
     <p class="maintenance-footer">© 2026 機智楊老生活製作小組</p>
     <p class="maintenance-footer">網頁內容，完全虛構。如有雷同，那就雷同。</p>
   </main>
+  <script>
+    const maintenanceButton = document.getElementById('maintenance-access');
+    const maintenanceHint = document.getElementById('maintenance-hint');
+    const maintenancePassword = 'yanglife2026';
+
+    maintenanceButton.addEventListener('click', () => {
+      const input = window.prompt('請輸入維修密碼');
+
+      if (input === null) {
+        maintenanceHint.textContent = '已取消輸入。';
+        maintenanceHint.className = 'maintenance-hint';
+        return;
+      }
+
+      if (input === maintenancePassword) {
+        maintenanceHint.textContent = '密碼正確，已通過驗證。';
+        maintenanceHint.className = 'maintenance-hint maintenance-hint--success';
+        return;
+      }
+
+      maintenanceHint.textContent = '密碼錯誤，請再試一次。';
+      maintenanceHint.className = 'maintenance-hint maintenance-hint--error';
+    });
+  </script>
 </body>
 </html>
