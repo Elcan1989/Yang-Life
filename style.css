@@ -239,6 +239,7 @@ footer {
 
 
 
+
 /* 維修中頁面 */
 .maintenance-body {
   min-height: 100vh;
@@ -312,21 +313,10 @@ footer {
   gap: 12px;
 }
 
-.maintenance-hint {
-  margin: 16px 0 0;
-  font-size: 14px;
-  color: #6b7280;
-  min-height: 20px;
-}
-
 .btn.btn-outline {
   background: transparent;
   color: #ef233c;
-}
-
-.btn.btn-outline {
-  background: transparent;
-  color: #ef233c;
+  border: 2px solid #ef233c;
 }
 
 .btn.btn-outline:hover {
