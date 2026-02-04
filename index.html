@@ -43,19 +43,15 @@
       const input = window.prompt('請輸入維修密碼');
 
       if (input === null) {
-        maintenanceHint.textContent = '已取消輸入。';
-        maintenanceHint.className = 'maintenance-hint';
         return;
       }
 
       if (input === maintenancePassword) {
-        maintenanceHint.textContent = '密碼正確，已通過驗證。';
-        maintenanceHint.className = 'maintenance-hint maintenance-hint--success';
+        window.location.href = 'index.html';
         return;
       }
 
-      maintenanceHint.textContent = '密碼錯誤，請再試一次。';
-      maintenanceHint.className = 'maintenance-hint maintenance-hint--error';
+      window.alert('密碼錯誤，請再試一次。');
     });
   </script>
 </body>
