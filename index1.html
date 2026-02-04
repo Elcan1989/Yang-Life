@@ -123,12 +123,6 @@
         <p class="contact-note">如果您有任何問題，歡迎聯絡我們！</p>
       </div>
     </section>
-  <section class="content">
-    <h2>🔧 維修人員入口</h2>
-    <p>僅限維修人員使用。</p>
-    <button class="btn btn-maintenance" type="button" id="maintenance-access">輸入維修密碼</button>
-  </section>
-
 
     <style>
       .contact-section {
@@ -167,24 +161,5 @@
     <p>© 2026 機智楊老生活製作小組</p>
     <p>網頁內容，完全虛構。如有雷同，那就雷同。</p>
     <footer>
-  <script>
-    const maintenanceButton = document.getElementById('maintenance-access');
-    const maintenancePassword = 'yanglife2026';
-
-    maintenanceButton.addEventListener('click', () => {
-      const input = window.prompt('請輸入維修密碼');
-
-      if (input === null) {
-        return;
-      }
-
-      if (input === maintenancePassword) {
-        window.location.href = 'index.html';
-        return;
-      }
-
-      window.alert('密碼錯誤，請再試一次。');
-    });
-  </script>
 </body>
 </html>
