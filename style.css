@@ -351,10 +351,4 @@ footer {
   color: #6b7280;
 }
 
-.btn.btn-maintenance {
-  background: #1f2937;
-}
 
-.btn.btn-maintenance:hover {
-  background: #111827;
-}
