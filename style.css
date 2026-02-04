@@ -312,10 +312,6 @@ footer {
   gap: 12px;
 }
 
-.btn.btn-outline.btn-maintenance {
-  border-style: dashed;
-}
-
 .maintenance-hint {
   margin: 16px 0 0;
   font-size: 14px;
