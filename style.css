@@ -332,6 +332,8 @@ footer {
 }
 
 
+
+
 .btn.btn-outline {
   background: transparent;
   color: #ef233c;
@@ -347,4 +349,12 @@ footer {
   margin-top: 24px;
   font-size: 12px;
   color: #6b7280;
+}
+
+.btn.btn-maintenance {
+  background: #1f2937;
+}
+
+.btn.btn-maintenance:hover {
+  background: #111827;
 }
