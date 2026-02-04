@@ -323,21 +323,9 @@ footer {
   min-height: 20px;
 }
 
-.maintenance-hint--success {
-  color: #16a34a;
-}
-
-.maintenance-hint--error {
-  color: #dc2626;
-}
-
-
-
-
 .btn.btn-outline {
   background: transparent;
   color: #ef233c;
-  border: 2px solid #ef233c;
 }
 
 .btn.btn-outline:hover {
