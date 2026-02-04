@@ -312,6 +312,26 @@ footer {
   gap: 12px;
 }
 
+.btn.btn-outline.btn-maintenance {
+  border-style: dashed;
+}
+
+.maintenance-hint {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+  min-height: 20px;
+}
+
+.maintenance-hint--success {
+  color: #16a34a;
+}
+
+.maintenance-hint--error {
+  color: #dc2626;
+}
+
+
 .btn.btn-outline {
   background: transparent;
   color: #ef233c;
