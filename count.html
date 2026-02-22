@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>照片 - 機智楊老生活</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/stanp.png" type="image/png" />
+  <style>
+    .character-card {
+      background: #fff;
+      padding: 15px;
+      width: 220px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .character-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(239, 35, 60, 0.6),
+                  0 0 15px rgba(239, 35, 60, 0.8);
+      border: 2px solid #ef233c;
+    }
+
+    .character-details {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #f8f8f8;
+      border-radius: 6px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .character-card.active .character-details {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .photo-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(239, 35, 60, 0.5);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .photo-card h3 {
+      margin: 12px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .photo-card p {
+      margin: 0 12px 14px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+    /* Lightbox 容器 */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+
+  .lightbox-caption {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    max-width: 80%;
+  }
+
+  .lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .lightbox .close:hover {
+    color: #ef233c;
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2 class="logo">機智楊老生活</h2>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="specialnews.html">公告</a></li>
+      <li><a href="news.html">新疆蘋果日報</a></li>
+      <li><a href="photo.html" class="active">倒數</a></li>
+      <li><a href="awards.html">獲獎</a></li>
+      <li><a href="video.html">影片消息</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" style="background: #ef233c; color: white; padding: 60px 20px; text-align: center;">
+    <h1>距離 2026 國中會考還有...</h1>
+    <div id="countdown-timer" style="font-size: 3rem; font-weight: bold; margin-top: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);">
+      計算中...
+    </div>
+  </header>
+
+  <section class="photo-gallery">
+    <div class="photo-card">
+      <div style="padding: 20px; text-align: center;">
+        <h3 id="days-box" style="font-size: 40px; color: #ef233c;">0</h3>
+        <p>剩餘天數</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div style="padding: 20px; text-align: center;">
+        <h3 style="font-size: 24px;">考試日期</h3>
+        <p>2026年 5月 16, 17日</p>
+        <p style="font-size: 12px; color: #888;">(預計日期)</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div style="padding: 20px; text-align: center;">
+        <h3 style="font-size: 24px;">楊老的小叮嚀</h3>
+        <p>「別看了，快去讀書，不然就去摘棉花。」</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #1f2937; color: white; text-align: center; padding: 20px; margin-top: 50px;">
+    <p>© 2026 機智楊老生活製作小組 - 戰時準備狀態</p>
+  </footer>
+
+  <script>
+    function updateCountdown() {
+      // 設定 2026 會考日期 (暫定為 5月 16日早上 8:00)
+      const examDate = new Date('May 16, 2026 08:00:00').getTime();
+      const now = new Date().getTime();
+      const gap = examDate - now;
+
+      // 時間換算
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      if (gap > 0) {
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % day) / hour);
+        const m = Math.floor((gap % hour) / minute);
+        const s = Math.floor((gap % minute) / second);
+
+        document.getElementById('countdown-timer').innerText = `${d}天 ${h}時 ${m}分 ${s}秒`;
+        document.getElementById('days-box').innerText = d;
+      } else {
+        document.getElementById('countdown-timer').innerText = "考試已經開始或結束！";
+      }
+    }
+
+    // 每秒更新一次
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
