@@ -128,9 +128,9 @@
       let m = Math.floor((gap % hour) / minute);
       let s = Math.floor((gap % minute) / second);
 
-      // 如果開啟測試模式，強制天數變為 29 天
+      // 如果開啟測試模式，強制天數改變，調整d
       if (testMode) {
-        d = 29; 
+        d = -1; 
         timerDisplay.style.color = "#ffff00"; // 測試模式字體變黃色區分
       }
 
