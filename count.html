@@ -7,44 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/stanp.png" type="image/png" />
   <style>
-    .character-card {
-      background: #fff;
-      padding: 15px;
-      width: 220px;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .character-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(239, 35, 60, 0.6),
-                  0 0 15px rgba(239, 35, 60, 0.8);
-      border: 2px solid #ef233c;
-    }
-
-    .character-details {
-      display: none;
-      margin-top: 10px;
-      padding: 10px;
-      background: #f8f8f8;
-      border-radius: 6px;
-      font-size: 14px;
-      text-align: left;
-    }
-
-    .character-card.active .character-details {
-      display: block;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* 這裡保留你原本所有的 CSS */
     .photo-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -53,81 +16,49 @@
       max-width: 1200px;
       margin: auto;
     }
-
     .photo-card {
       background: #fff;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .photo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(239, 35, 60, 0.5);
+    /* --- 新增：倒數計時器背景狀態 --- */
+    .hero-timer-container {
+      padding: 60px 20px;
+      text-align: center;
+      transition: background 0.5s ease;
+      color: white;
     }
 
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    /* 狀態 1：預設黑色背景 */
+    .bg-normal {
+      background: #1a1a1a;
     }
 
-    .photo-card h3 {
-      margin: 12px;
-      font-size: 18px;
-      color: #222;
+    /* 狀態 2：剩餘 50 天變紅 */
+    .bg-danger {
+      background: #ef233c !important;
     }
 
-    .photo-card p {
-      margin: 0 12px 14px;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
+    /* 狀態 3：剩餘 30 天閃爍 */
+    .bg-emergency {
+      animation: flash-bg 0.8s infinite;
     }
-    /* Lightbox 容器 */
-  .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
 
-  .lightbox-img {
-    max-width: 90%;
-    max-height: 80%;
-    margin-bottom: 15px;
-    border-radius: 8px;
-  }
+    @keyframes flash-bg {
+      0% { background: #ef233c; }
+      50% { background: #000000; }
+      100% { background: #ef233c; }
+    }
 
-  .lightbox-caption {
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    max-width: 80%;
-  }
-
-  .lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-
-  .lightbox .close:hover {
-    color: #ef233c;
-  }
+    #countdown-timer {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
   </style>
 </head>
 <body>
@@ -139,16 +70,13 @@
       <li><a href="news.html">新疆蘋果日報</a></li>
       <li><a href="photo.html">照片</a></li>
       <li><a href="awards.html">獲獎</a></li>
-      <li><a href="video.html" >影片消息</a></li>
       <li><a href="video.html" class="active">會考情報室</a></li>
     </ul>
   </nav>
 
-  <header class="hero" style="background: #ef233c; color: white; padding: 60px 20px; text-align: center;">
+  <header id="timer-header" class="hero-timer-container bg-normal">
     <h1>距離 2026 國中會考還有...</h1>
-    <div id="countdown-timer" style="font-size: 3rem; font-weight: bold; margin-top: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);">
-      計算中...
-    </div>
+    <div id="countdown-timer">計算中...</div>
   </header>
 
   <section class="photo-gallery">
@@ -170,23 +98,27 @@
 
   <footer style="background: #1f2937; color: white; text-align: center; padding: 20px; margin-top: 50px;">
     <p>有任何問題歡迎聯絡我們</p>
-    <a href="https://www.instagram.com/yanglife_offical/" style="color: #E1306C; text-decoration: none; font-weight: bold;">Instagram</a>    <a href="https://github.com/Elcan1989" style="color: #e6cb00; text-decoration: none; font-weight: bold;">Github</a>
+    <a href="https://www.instagram.com/yanglife_offical/" style="color: #E1306C; text-decoration: none; font-weight: bold;">Instagram</a>
+    <a href="https://github.com/Elcan1989" style="color: #e6cb00; text-decoration: none; font-weight: bold;">Github</a>
     <p>© 2026 機智楊老生活製作小組</p>
     <p>網頁內容，不是全對。如有不同，簡章為準。</p>
   </footer>
 
   <script>
     function updateCountdown() {
-      // 設定 2026 會考日期 (暫定為 5月 16日早上 8:20)
+      // 設定日期
       const examDate = new Date('May 16, 2026 08:20:00').getTime();
       const now = new Date().getTime();
       const gap = examDate - now;
 
-      // 時間換算
       const second = 1000;
       const minute = second * 60;
       const hour = minute * 60;
       const day = hour * 24;
+
+      const header = document.getElementById('timer-header');
+      const timerDisplay = document.getElementById('countdown-timer');
+      const daysBox = document.getElementById('days-box');
 
       if (gap > 0) {
         const d = Math.floor(gap / day);
@@ -194,41 +126,26 @@
         const m = Math.floor((gap % hour) / minute);
         const s = Math.floor((gap % minute) / second);
 
-        document.getElementById('countdown-timer').innerText = `${d}天 ${h}時 ${m}分 ${s}秒`;
-        document.getElementById('days-box').innerText = d;
+        timerDisplay.innerText = `${d}天 ${h}時 ${m}分 ${s}秒`;
+        daysBox.innerText = d;
+
+        // --- 自動切換背景邏輯 ---
+        if (d <= 30) {
+          header.className = "hero-timer-container bg-emergency"; // 30天內閃爍
+        } else if (d <= 50) {
+          header.className = "hero-timer-container bg-danger";    // 50天內變紅
+        } else {
+          header.className = "hero-timer-container bg-normal";    // 其他時間黑色
+        }
+
       } else {
-        document.getElementById('countdown-timer').innerText = "考試已經開始或結束！";
+        timerDisplay.innerText = "考試已經開始！戰鬥吧！";
+        header.className = "hero-timer-container bg-normal";
       }
     }
 
-    // 每秒更新一次
     setInterval(updateCountdown, 1000);
     updateCountdown();
-
-    /* 預設黑色背景 */
-    .hero-countdown {
-      background: #1a1a1a; 
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      transition: background 0.5s ease; /* 變色時平滑一點 */
-    }
-
-    /* 剩餘 50 天：變紅 */
-    .hero-danger {
-      background: #ef233c !important;
-    }
-
-    /* 剩餘 30 天：閃爍動畫 */
-    .hero-emergency {
-      animation: flash-bg 0.8s infinite;
-    }
-
-    @keyframes flash-bg {
-      0% { background: #ef233c; }
-      50% { background: #000000; }
-      100% { background: #ef233c; }
-    }
   </script>
 </body>
 </html>
