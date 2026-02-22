@@ -204,6 +204,31 @@
     // 每秒更新一次
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    /* 預設黑色背景 */
+    .hero-countdown {
+      background: #1a1a1a; 
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      transition: background 0.5s ease; /* 變色時平滑一點 */
+    }
+
+    /* 剩餘 50 天：變紅 */
+    .hero-danger {
+      background: #ef233c !important;
+    }
+
+    /* 剩餘 30 天：閃爍動畫 */
+    .hero-emergency {
+      animation: flash-bg 0.8s infinite;
+    }
+
+    @keyframes flash-bg {
+      0% { background: #ef233c; }
+      50% { background: #000000; }
+      100% { background: #ef233c; }
+    }
   </script>
 </body>
 </html>
