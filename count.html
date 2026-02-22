@@ -139,7 +139,7 @@
         daysBox.innerText = d;
 
         // 背景切換邏輯
-        if (d <= 30) {
+        if (d <= 30 && d >=0) {
           header.className = "hero-timer-container bg-emergency"; // 閃爍
         } else if (d <= 50) {
           header.className = "hero-timer-container bg-danger";    // 恆紅
