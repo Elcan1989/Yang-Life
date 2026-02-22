@@ -106,7 +106,10 @@
 
   <script>
     function updateCountdown() {
-      // 設定日期
+      // --- 測試模式開關 ---
+      const testMode = true; // 想看正常日期時，把這裡改成 false
+      // ------------------
+
       const examDate = new Date('May 16, 2026 08:20:00').getTime();
       const now = new Date().getTime();
       const gap = examDate - now;
@@ -120,26 +123,31 @@
       const timerDisplay = document.getElementById('countdown-timer');
       const daysBox = document.getElementById('days-box');
 
-      if (gap > 0) {
-        const d = Math.floor(gap / day);
-        const h = Math.floor((gap % day) / hour);
-        const m = Math.floor((gap % hour) / minute);
-        const s = Math.floor((gap % minute) / second);
+      let d = Math.floor(gap / day);
+      let h = Math.floor((gap % day) / hour);
+      let m = Math.floor((gap % hour) / minute);
+      let s = Math.floor((gap % minute) / second);
 
+      // 如果開啟測試模式，強制天數變為 29 天
+      if (testMode) {
+        d = 29; 
+        timerDisplay.style.color = "#ffff00"; // 測試模式字體變黃色區分
+      }
+
+      if (gap > 0 || testMode) {
         timerDisplay.innerText = `${d}天 ${h}時 ${m}分 ${s}秒`;
         daysBox.innerText = d;
 
-        // --- 自動切換背景邏輯 ---
+        // 背景切換邏輯
         if (d <= 30) {
-          header.className = "hero-timer-container bg-emergency"; // 30天內閃爍
+          header.className = "hero-timer-container bg-emergency"; // 閃爍
         } else if (d <= 50) {
-          header.className = "hero-timer-container bg-danger";    // 50天內變紅
+          header.className = "hero-timer-container bg-danger";    // 恆紅
         } else {
-          header.className = "hero-timer-container bg-normal";    // 其他時間黑色
+          header.className = "hero-timer-container bg-normal";    // 黑色
         }
-
       } else {
-        timerDisplay.innerText = "考試已經開始！戰鬥吧！";
+        timerDisplay.innerText = "考試已經開始！";
         header.className = "hero-timer-container bg-normal";
       }
     }
