@@ -104,15 +104,16 @@
     <p>網頁內容，不是全對。如有不同，簡章為準。</p>
   </footer>
 
-  <script>
+<script>
     function updateCountdown() {
       // --- 測試模式開關 ---
-      const testMode = false; // 想看正常日期時，把這裡改成 false，測試時改true
+      const testMode = false; 
       // ------------------
 
       const examDate = new Date('May 16, 2026 08:20:00').getTime();
-      const now = new Date().getTime();
-      const gap = examDate - now;
+      const now = new Date(); // 改為 Date 物件以便取得小時與分鐘
+      const currentTime = now.getTime();
+      const gap = examDate - currentTime;
 
       const second = 1000;
       const minute = second * 60;
@@ -128,23 +129,36 @@
       let m = Math.floor((gap % hour) / minute);
       let s = Math.floor((gap % minute) / second);
 
-      // 如果開啟測試模式，強制天數改變，調整d
+      // --- 新增邏輯：8:20 前顯示 d，8:20 後顯示 d+1 ---
+      let displayDays = d;
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
+      
+      // 判斷目前是否已超過 08:20
+      if (currentHour > 8 || (currentHour === 8 && currentMinute >= 20)) {
+        displayDays = d + 1;
+      }
+      // --------------------------------------------
+
+      // 如果開啟測試模式
       if (testMode) {
         d = -1; 
-        timerDisplay.style.color = "#ffff00"; // 測試模式字體變黃色區分
+        displayDays = -1; // 測試模式同步
+        timerDisplay.style.color = "#ffff00"; 
       }
 
       if (gap > 0 || testMode) {
-        timerDisplay.innerText = `${d}天 ${h}時 ${m}分 ${s}秒`;
-        daysBox.innerText = d;
+        // 這裡將原本的 d 改為 displayDays
+        timerDisplay.innerText = `${displayDays}天 ${h}時 ${m}分 ${s}秒`;
+        daysBox.innerText = displayDays;
 
-        // 背景切換邏輯
-        if (d <= 30 && d >=0) {
-          header.className = "hero-timer-container bg-emergency"; // 閃爍
-        } else if (d <= 50) {
-          header.className = "hero-timer-container bg-danger";    // 恆紅
+        // 背景切換邏輯 (維持使用原本的 d 或 displayDays 視你需求，這裡建議用 displayDays 保持視覺統一)
+        if (displayDays <= 30 && displayDays >= 0) {
+          header.className = "hero-timer-container bg-emergency"; 
+        } else if (displayDays <= 50) {
+          header.className = "hero-timer-container bg-danger";    
         } else {
-          header.className = "hero-timer-container bg-normal";    // 黑色
+          header.className = "hero-timer-container bg-normal";    
         }
       } else {
         timerDisplay.innerText = "考試已經開始！";
